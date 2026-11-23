@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Zane Sanders – Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #eef2f6;
+        --surface: #fff;
+        --ink: #14213d;
+        --muted: #51607a;
+        --accent: #2f5bff;
+        --on-accent: #fff;
+        --line: #d3dbe6;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #10172a;
+          --surface: #18223b;
+          --ink: #eef2f9;
+          --muted: #a3b0c8;
+          --accent: #7f9bff;
+          --on-accent: #10172a;
+          --line: #2a3757;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #10172a;
+        --surface: #18223b;
+        --ink: #eef2f9;
+        --muted: #a3b0c8;
+        --accent: #7f9bff;
+        --on-accent: #10172a;
+        --line: #2a3757;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          "Bricolage Grotesque",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      a {
+        color: inherit;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      .wrap {
+        max-width: 62rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+      }
+      nav strong {
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+      nav a {
+        text-decoration: none;
+        margin-left: 1.2rem;
+        color: var(--muted);
+      }
+      nav a:hover {
+        color: var(--ink);
+      }
+      .hero {
+        padding: 4rem 0 5rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 9vw, 6rem);
+        line-height: 1;
+        margin: 0 0 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        max-width: 14ch;
+      }
+      .hero p {
+        max-width: 36rem;
+        color: var(--muted);
+        font-size: 1.2rem;
+        margin: 0 0 2rem;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--on-accent);
+        padding: 0.85rem 1.6rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 0.6rem 0.6rem 0;
+      }
+      .btn.alt {
+        background: transparent;
+        color: var(--ink);
+        border: 2px solid var(--accent);
+      }
+      h2 {
+        font-size: 1.9rem;
+        margin: 0 0 1.5rem;
+        letter-spacing: -0.02em;
+      }
+      h3 {
+        margin: 0 0 0.6rem;
+        font-size: 1.1rem;
+      }
+      section {
+        padding: 3.5rem 0;
+        border-top: 1px solid var(--line);
+      }
+      .two {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      }
+      .box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1.3rem 1.5rem;
+      }
+      ul.plain {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+      ul.pills {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      ul.pills li {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        gap: 0.2rem 1rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .row:last-child {
+        border: 0;
+      }
+      .row b {
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .row span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .empty {
+        border: 2px dashed var(--line);
+        border-radius: 6px;
+        padding: 2rem;
+        color: var(--muted);
+      }
+      footer {
+        padding: 3rem 0 4rem;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+      footer a {
+        color: var(--accent);
+      }
+      @media (max-width: 30rem) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <strong>Zane Sanders</strong
+        ><span
+          ><a href="#over-mij">Over mij</a><a href="#cv">CV</a
+          ><a href="#realisaties">Realisaties</a
+          ><a href="#contact">Contact</a></span
+        >
+      </nav>
+
+      <header class="hero">
+        <h1>Hallo, ik ben Zane.</h1>
+        <p>
+          Student Graduaat Marketing &amp; Communicatiesupport met een creatieve
+          achtergrond in print media. Leergierig, sociaal en klaar om
+          praktijkervaring op te doen.
+        </p>
+        <a class="btn" href="#cv">Bekijk mijn CV</a
+        ><a
+          class="btn alt"
+          href="https://www.linkedin.com/in/zane-sanders-marcom/"
+          >LinkedIn</a
+        >
+      </header>
+
+      <section id="over-mij">
+        <h2>Over mij</h2>
+        <div class="two">
+          <div>
+            <p>
+              Ik volg het graduaat Marketing- en Communicatiesupport aan de
+              Erasmushogeschool Brussel. In het secundair koos ik voor TSO Print
+              Media, waar ik de basis van grafisch werk leerde. Naast mijn
+              studie werk ik in de horeca, waar ik veel ervaring opdoe met
+              klanten en teamwerk.
+            </p>
+          </div>
+          <div class="box">
+            <h3>Mijn sterktes</h3>
+            <ul class="plain">
+              <li>Stressbestendig</li>
+              <li>Klantgericht en communicatief sterk</li>
+              <li>Zelfstandig én teamgericht</li>
+              <li>Flexibel en leergierig</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="cv">
+        <h2>CV</h2>
+        <div class="two">
+          <div class="box">
+            <h3>Werkervaring</h3>
+            <div class="row">
+              <b>2026–heden</b>
+              <div>
+                Gravenkelder Restaurant, Beersel<span
+                  >Bereiding van dranken, klantenservice en barbeheer</span
+                >
+              </div>
+            </div>
+            <div class="row">
+              <b>2025–2026</b>
+              <div>
+                Panos City Halle<span
+                  >Bereiding van maaltijden en broodjes, bediening van klanten
+                  en kassa</span
+                >
+              </div>
+            </div>
+            <div class="row">
+              <b>2023–2024</b>
+              <div>
+                AD Delhaize Gooik<span
+                  >Kassa en kassa-afhandeling, vakken vullen en spiegelen</span
+                >
+              </div>
+            </div>
+            <div class="row">
+              <b>2022</b>
+              <div>
+                WZC Henri Vander Stokken, Pepingen<span
+                  >Schoonmaak en hygiëne van patiënten- en bewonerskamers</span
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="box" style="margin-bottom: 1.5rem">
+              <h3>Onderwijs</h3>
+              <div class="row">
+                <b>2025–heden</b>
+                <div>
+                  Erasmushogeschool Brussel<span
+                    >Marketing- en Communicatiesupport</span
+                  >
+                </div>
+              </div>
+              <div class="row">
+                <b>2024–2025</b>
+                <div>
+                  Erasmushogeschool Brussel<span
+                    >Multimedia &amp; Creatieve technologie</span
+                  >
+                </div>
+              </div>
+              <div class="row">
+                <b>2018–2024</b>
+                <div>Don Bosco Halle<span>TSO Print Media</span></div>
+              </div>
+            </div>
+            <div class="box">
+              <h3>Vaardigheden</h3>
+              <ul class="pills">
+                <li>Photoshop</li>
+                <li>InDesign</li>
+                <li>Illustrator</li>
+                <li>Canva</li>
+              </ul>
+              <h3 style="margin-top: 1.2rem">Talen</h3>
+              <ul class="pills">
+                <li>Nederlands (moedertaal)</li>
+                <li>Engels (goed)</li>
+                <li>Frans (basis)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem">
+          <a class="btn" href="https://www.linkedin.com/in/zane-sanders-marcom/"
+            >Mijn LinkedIn-profiel</a
+          >
+        </p>
+      </section>
+
+      <section id="realisaties">
+        <h2>Realisaties</h2>
+        <div class="empty">
+          Hier komen mijn realisaties te staan. Mijn eerste opdrachten uit mijn
+          opleiding volgen binnenkort.
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Woonplaats: Pepingen</p>
+        <a class="btn" href="mailto:zanesanders5@gmail.com"
+          >zanesanders5@gmail.com</a
+        >
+      </section>
+
+      <footer>© 2026 Zane Sanders. Portfolio in opbouw.</footer>
+    </div>
+  </body>
+</html>
